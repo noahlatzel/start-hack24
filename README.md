@@ -1,16 +1,9 @@
-# start_hack
+# START Hack 2024 | St. Gallen
 
-A new Flutter project.
+GitHub repository for our project for the START Hack 2024 hackathon in St. Gallen taking place from 20.03.2024 to 22.03.2024.
 
-## Getting Started
+## Syngenta Group Case
 
-This project is a starting point for a Flutter application.
+Using satellite imagery, weather and other datasets from real farms, build a gamified solution to illustrate the impact of different farm decisions (such as what crop to plant, wether to till the soil, how much fertilizer to apply) on agricultural and sustainability outcomes.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The solution can take various forms: an app, *website*, or online game etc.
