@@ -31,7 +31,7 @@ class _DetailsWidgetWrapperState extends State<DetailsWidgetWrapper> {
           ),
           margin: EdgeInsets.only(
             top: MediaQuery.of(context).size.height *
-                (extendedViewProvider.extendedResults ? 0.1 : 0.87),
+                (extendedViewProvider.extendedResults ? 0.3 : 0.87),
           ),
           width: MediaQuery.of(context).size.width,
           duration: const Duration(milliseconds: 200),

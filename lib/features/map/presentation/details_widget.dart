@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:start_hack/features/map/presentation/forecast_widget.dart';
+import 'package:start_hack/features/map/presentation/policy_analysis_widget.dart';
+import 'package:start_hack/features/map/repository/latlong_provider.dart';
 
 import '../repository/extended_view_provider.dart';
 
@@ -105,8 +107,14 @@ class _DetailsWidgetState extends State<DetailsWidget> {
             }
           },
         ),
-        if(_selections[0]) const ForecastWidget(),
-        if(_selections[1]) const SizedBox.shrink(),
+        if (_selections[0])
+          Consumer<LatLongProvider>(
+            builder:
+                (BuildContext context, LatLongProvider value, Widget? child) {
+              return const ForecastWidget();
+            },
+          ),
+        if (_selections[1]) const PolicyAnalysisWidget(),
       ],
     );
   }

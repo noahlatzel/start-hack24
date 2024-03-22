@@ -7,6 +7,8 @@ import 'package:start_hack/features/map/repository/forecast_result_provider.dart
 import 'package:start_hack/utils/api/syngenta_api.dart';
 
 import 'features/map/repository/extended_view_provider.dart';
+import 'features/map/repository/latlong_provider.dart';
+import 'features/map/repository/line_chart_provider.dart';
 import 'features/map/repository/syngenta_api_repository.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,6 +24,8 @@ void main() {
           create: (context) =>
               HttpSyngentaRepository(api: SyngentaAPI(), client: http.Client())),
       ChangeNotifierProvider<ForecastResultProvider>(create: (context) => ForecastResultProvider()),
+      ChangeNotifierProvider<LineChartProvider>(create: (context) => LineChartProvider()),
+      ChangeNotifierProvider<LatLongProvider>(create: (context) => LatLongProvider()),
     ],
     child: const MyApp(),
   ));
@@ -34,8 +38,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'START Hack | Syngenta',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFF0164)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'START Hack | Syngenta'),

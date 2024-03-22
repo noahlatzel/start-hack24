@@ -7,7 +7,6 @@ class ForecastResultProvider extends ChangeNotifier {
 
   void setForecastResults(List<Forecast> forecastResult) {
     this.forecastResult = forecastResult;
-    print(forecastResult.length);
     notifyListeners();
   }
 

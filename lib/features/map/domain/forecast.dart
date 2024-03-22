@@ -20,9 +20,13 @@ class Forecast {
     final measureLabel = data['measureLabel'] as String;
     dynamic dailyValue;
     try {
-      dailyValue = data['dailyValue'] as double;
+      dailyValue = double.parse(data['dailyValue']);
     } catch (exception) {
-      dailyValue = data['dailyValue'] as String;
+      try {
+        dailyValue = double.parse(data['value']);
+      } catch (exception) {
+        dailyValue = data['dailyValue'] ?? '';
+      }
     }
     return Forecast(
         latitude: latitude,
