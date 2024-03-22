@@ -21,18 +21,18 @@ class _PolicyAnalysisWidgetState extends State<PolicyAnalysisWidget> {
 
   String getBadgeString() {
     double sum = _currentSliderValue1 + _currentSliderValue2;
-    if (sum > 1.8) return "golden";
-    if (sum > 1.0) return "silver";
-    return "bronze";
+    if (sum > 1.8) return "an expert";
+    if (sum > 1.0) return "an advanced";
+    return "a beginner";
   }
 
   String getNextBadgeString() {
     double sum = _currentSliderValue1 + _currentSliderValue2;
     if (sum > 1.8) return "Great! You achieved the best badge.";
     if (sum > 1.0) {
-      return "Achieve ${(((1.8 / sum) - 1) * 100).toStringAsFixed(0)} % more to get a golden badge!";
+      return "Achieve ${(((1.8 / sum) - 1) * 100).toStringAsFixed(0)} % more to get an expert badge!";
     }
-    return "Achieve ${(((1.0 / sum) - 1) * 100).toStringAsFixed(0)} % more to get a silver badge!";
+    return "Achieve ${(((1.0 / sum) - 1) * 100).toStringAsFixed(0)} % more to get an advanced badge!";
   }
 
   @override
@@ -42,9 +42,9 @@ class _PolicyAnalysisWidgetState extends State<PolicyAnalysisWidget> {
         Padding(
           padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
           child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(18), topRight: Radius.circular(18)),
             ),
             padding: const EdgeInsets.all(12.0),
@@ -62,7 +62,7 @@ class _PolicyAnalysisWidgetState extends State<PolicyAnalysisWidget> {
                     ),
                     Expanded(
                       child: Text(
-                          "Your selected field is granted a ${getBadgeString()} badge."),
+                          "Your selected field is granted ${getBadgeString()} badge."),
                     ),
                   ],
                 )
@@ -71,7 +71,7 @@ class _PolicyAnalysisWidgetState extends State<PolicyAnalysisWidget> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+          padding: const EdgeInsets.only(left: 12, right: 12, bottom: 20),
           child: Container(
             decoration: const BoxDecoration(
               color: Colors.red,
@@ -167,15 +167,18 @@ class _PolicyAnalysisWidgetState extends State<PolicyAnalysisWidget> {
             });
           },
         ),
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Icon(Icons.yard),
-            SizedBox(
-              width: 4,
-            ),
-            Text("Crop Density"),
-          ],
+        const Padding(
+          padding: EdgeInsets.only(top: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(Icons.yard),
+              SizedBox(
+                width: 4,
+              ),
+              Text("Crop Density"),
+            ],
+          ),
         ),
         Slider(
           value: _currentSliderValue2,
